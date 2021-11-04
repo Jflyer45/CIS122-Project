@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour
     private Collider2D coll;
 
     // Serialized and Public Variables
+    [SerializeField] float moveForce = 5.0f;
     [SerializeField] float jumpForce = 10.0f; 
+     
 
     // Start is called before the first frame update
     void Start()
@@ -24,11 +26,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            rb.velocity = new Vector2(5, rb.velocity.y);
+            rb.velocity = new Vector2(moveForce, rb.velocity.y);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity = new Vector2(-5, rb.velocity.y);
+            rb.velocity = new Vector2(-moveForce, rb.velocity.y);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
