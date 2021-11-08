@@ -24,13 +24,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.D))
+        // Checks the horizontal input, from the general unity input
+        float hDirection = Input.GetAxis("Horizontal");
+        if (hDirection > 0)
         {
             rb.velocity = new Vector2(moveForce, rb.velocity.y);
+            transform.localScale = new Vector2(1, 1);
         }
-        if (Input.GetKey(KeyCode.A))
+        else if (hDirection < 0)
         {
             rb.velocity = new Vector2(-moveForce, rb.velocity.y);
+            transform.localScale = new Vector2(-1, 1);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
