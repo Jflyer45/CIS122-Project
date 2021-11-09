@@ -251,6 +251,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1321269799}
     - target: {fileID: 6111127155855966272, guid: b7f22b4c003a2f44facab400e66cf05f, type: 3}
+      propertyPath: Ground.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111127155855966272, guid: b7f22b4c003a2f44facab400e66cf05f, type: 3}
       propertyPath: pineappleText
       value: 
       objectReference: {fileID: 1285173631}
@@ -327,7 +331,7 @@ GameObject:
   - component: {fileID: 253824257}
   - component: {fileID: 253824256}
   - component: {fileID: 253824255}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1961,7 +1965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 99, y: -71}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1435902558 stripped
@@ -2245,7 +2249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1896968948}
   - component: {fileID: 1896968947}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
