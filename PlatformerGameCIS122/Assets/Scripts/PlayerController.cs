@@ -93,41 +93,46 @@ public class PlayerController : MonoBehaviour
             // Assign the name of the game object to a variable
             string collectableName = collision.name;
 
-            // Add to the correct fruit and display on the screen
-			switch (collectableName)
+			// Add to the correct fruit and display on the screen
+			if (collectableName.Contains("Cherry"))
 			{
-                case "Cherry":
-                    cherries += 1;
-                    cherryText.text = cherries.ToString();
-                    break;
-                case "Strawberry":
-                    strawberries += 1;
-                    strawberryText.text = strawberries.ToString();
-                    break;
-                case "Banana":
-                    bananas += 1;
-                    bananaText.text = bananas.ToString();
-                    break;
-                case "Kiwi":
-                    kiwis += 1;
-                    kiwiText.text = kiwis.ToString();
-                    break;
-                case "Orange":
-                    oranges += 1;
-                    orangeText.text = oranges.ToString();
-                    break;
-                case "Pineapple":
-                    pineapples += 1;
-                    pineappleText.text = pineapples.ToString();
-                    break;
-                case "Melon":
-                    melons += 1;
-                    melonText.text = melons.ToString();
-                    break;
-                case "Apple":
-                    apples += 1;
-                    appleText.text = apples.ToString();
-                    break;
+                cherries += 1;
+                cherryText.text = cherries.ToString();
+            }
+            else if (collectableName.Contains("Strawberry"))
+			{
+                strawberries += 1;
+                strawberryText.text = strawberries.ToString();
+            }
+            else if (collectableName.Contains("Banana"))
+			{
+                bananas += 1;
+                bananaText.text = bananas.ToString();
+            }
+            else if (collectableName.Contains("Kiwi"))
+			{
+                kiwis += 1;
+                kiwiText.text = kiwis.ToString();
+            }
+            else if (collectableName.Contains("Orange"))
+			{
+                oranges += 1;
+                orangeText.text = oranges.ToString();
+            }
+            else if (collectableName.Contains("Pineapple"))
+			{
+                pineapples += 1;
+                pineappleText.text = pineapples.ToString();
+            }
+            else if (collectableName.Contains("Melon"))
+			{
+                melons += 1;
+                melonText.text = melons.ToString();
+            }
+			else
+			{
+                apples += 1;
+                appleText.text = apples.ToString();
             }
         }
     }
