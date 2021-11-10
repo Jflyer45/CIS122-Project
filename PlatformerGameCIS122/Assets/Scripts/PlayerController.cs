@@ -12,8 +12,9 @@ public class PlayerController : MonoBehaviour
 
     // Serialized and Public Variables
     [SerializeField] float moveForce = 5.0f;
-    [SerializeField] float jumpForce = 10.0f; 
-     
+    [SerializeField] float jumpForce = 10.0f;
+
+    [SerializeField] private AudioSource jumpSoundEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpSoundEffect.Play();
         }
     }
 }
