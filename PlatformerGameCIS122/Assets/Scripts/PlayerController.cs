@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveForce = 5.0f;
     [SerializeField] float jumpForce = 10.0f;
 
+    //Sound
+    [SerializeField] private AudioSource jumpSoundEffects;
+    [SerializeField] private AudioSource collectionSoundEffects;
+
     // Collectables
     [SerializeField] private int cherries = 0;
     [SerializeField] private int strawberries = 0;
@@ -76,6 +80,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             state = State.jump;
+            jumpSoundEffects.Play();
         }
 
         VelocityState();
@@ -89,6 +94,9 @@ public class PlayerController : MonoBehaviour
         {
             // Destroy the game object
             Destroy(collision.gameObject);
+
+            // Collecting sound
+            collectionSoundEffects.Play();
 
             // Assign the name of the game object to a variable
             string collectableName = collision.name;
