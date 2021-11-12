@@ -12,12 +12,13 @@ public class PlayerController : MonoBehaviour
     private Collider2D coll;
     [SerializeField] private LayerMask Ground;
     private Animator anim;
-    private enum State { idle, run, jump, falling};
+    private enum State { idle, run, jump, falling, hurt};
     private State state = State.idle;
 
     // Movement
     [SerializeField] float moveForce = 5.0f;
     [SerializeField] float jumpForce = 10.0f;
+    [SerializeField] float hurtForce = 10.0f;
 
     //Sound
     [SerializeField] private AudioSource jumpSoundEffects;
@@ -54,30 +55,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Checks the horizontal input, from the general unity input
-        float hDirection = Input.GetAxis("Horizontal");
-
-        if (hDirection > 0)
+        if(state != State.hurt)
         {
-            rb.velocity = new Vector2(moveForce, rb.velocity.y);
-            transform.localScale = new Vector2(1, 1);
-        }
-        else if (hDirection < 0)
-        {
-            rb.velocity = new Vector2(-moveForce, rb.velocity.y);
-            transform.localScale = new Vector2(-1, 1);
-        }
-        else
-        {
-          rb.velocity = new Vector2(0, rb.velocity.y);
-        }
-
-        // Jump
-        if (Input.GetButtonDown("Jump") && coll.IsTouchingLayers(Ground))
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            state = State.jump;
-            jumpSoundEffects.Play();
+            Movement();
         }
 
         VelocityState();
@@ -145,9 +125,29 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Enemy" && state == State.falling)
+        if(other.gameObject.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+            if(state == State.falling)
+            {
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                Debug.Log("Player now hurt");
+                state = State.hurt;
+                if (other.gameObject.transform.position.x < transform.position.x)
+                {
+                    Debug.Log("Player push to right: ");
+                    // enemy is to the right
+                    rb.velocity = new Vector2(-hurtForce, rb.velocity.y);
+                }
+                else
+                {
+                    Debug.Log("Player push to left");
+                    // enemy must be left
+                    rb.velocity = new Vector2(hurtForce, rb.velocity.y);
+                }
+            }
         }
     }
 
@@ -176,6 +176,35 @@ public class PlayerController : MonoBehaviour
         else
         {
             state = State.idle;
+        }
+    }
+
+    private void Movement()
+    {
+        // Checks the horizontal input, from the general unity input
+        float hDirection = Input.GetAxis("Horizontal");
+
+        if (hDirection > 0)
+        {
+            rb.velocity = new Vector2(moveForce, rb.velocity.y);
+            transform.localScale = new Vector2(1, 1);
+        }
+        else if (hDirection < 0)
+        {
+            rb.velocity = new Vector2(-moveForce, rb.velocity.y);
+            transform.localScale = new Vector2(-1, 1);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+
+        // Jump
+        if (Input.GetButtonDown("Jump") && coll.IsTouchingLayers(Ground))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            state = State.jump;
+            jumpSoundEffects.Play();
         }
     }
 }
