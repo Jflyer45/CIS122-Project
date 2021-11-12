@@ -9,16 +9,13 @@ public class PlayerController : MonoBehaviour
 {
     // Private Variables
     private Rigidbody2D rb;
-
     private Collider2D coll;
     [SerializeField] private LayerMask Ground;
-
     private Animator anim;
-
     private enum State { idle, run, jump, falling};
     private State state = State.idle;
 
-    // Serialized and Public Variables
+    // Movement
     [SerializeField] float moveForce = 5.0f;
     [SerializeField] float jumpForce = 10.0f;
 
@@ -142,6 +139,15 @@ public class PlayerController : MonoBehaviour
                 apples += 1;
                 appleText.text = apples.ToString();
             }
+        }
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Enemy" && state == State.falling)
+        {
+            Destroy(other.gameObject);
         }
     }
 
