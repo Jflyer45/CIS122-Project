@@ -8,6 +8,6 @@ public class DialogueUI : MonoBehaviour
 
     private void Start()
     {
-        textLabel.text = "Hello! \n this is my s4econd line";
+        GetComponent<TypeWritterEffect>().Run("This is a bit of text!\n Hellow", textLabel);
     }
 }
