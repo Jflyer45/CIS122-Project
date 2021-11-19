@@ -6,7 +6,7 @@ using UnityEngine;
 public class DialogueObject : ScriptableObject
 {
     [SerializeField] [TextArea] private string[] dialogue;
-    [SerializeField] private Response[] responses;
+    [SerializeField] public Response[] responses;
 
     // Get Sets
     // Read only

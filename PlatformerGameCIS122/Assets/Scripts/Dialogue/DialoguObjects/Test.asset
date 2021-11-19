@@ -19,3 +19,8 @@ MonoBehaviour:
   - 'This is our second dialouge
 
     Goodbye!'
+  responses:
+  - responseText: Yes
+    dialogueObject: {fileID: 11400000, guid: b504688eee604254f961e585d5f47ef1, type: 2}
+  - responseText: No
+    dialogueObject: {fileID: 11400000, guid: e4de12eae42fd024cba583d148dbbb2d, type: 2}
