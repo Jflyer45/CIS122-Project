@@ -9,28 +9,49 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private TMP_Text textLabel;
     [SerializeField] private DialogueObject testDialogue;
     private TypeWritterEffect typeWritterEffect;
+    private ResponseHandler responseHandler;
 
     private void Start()
     {
         typeWritterEffect = GetComponent<TypeWritterEffect>();
+        responseHandler = GetComponent<ResponseHandler>();
         CloseDialogueBox();
         ShowDialogue(testDialogue);
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)
     {
+        Debug.Log("this happed");
         dialogueBox.SetActive(true);
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
 
     private IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
     {
-        foreach(string dialogue in dialogueObject.Dialogue)
+        Debug.Log(dialogueObject);
+        for(int i = 0; i < dialogueObject.Dialogue.Length; i++)
         {
+            
+            string dialogue = dialogueObject.Dialogue[i];
             yield return typeWritterEffect.Run(dialogue, textLabel);
+
+            if(i == dialogueObject.Dialogue.Length && dialogueObject.HasResponses)
+            {
+                break;
+            }
+
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         }
-        CloseDialogueBox();
+
+        // If there are responses, then shows then, else remove the dialog box!
+        if (dialogueObject.HasResponses)
+        {
+            responseHandler.ShowResponses(dialogueObject.Responses);
+        }
+        else
+        {
+            CloseDialogueBox();
+        }
     }
 
     private void CloseDialogueBox()

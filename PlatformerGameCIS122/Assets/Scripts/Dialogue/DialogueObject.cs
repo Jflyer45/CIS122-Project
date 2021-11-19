@@ -11,5 +11,7 @@ public class DialogueObject : ScriptableObject
     // Get Sets
     // Read only
     public string[] Dialogue => dialogue;
+
+    public bool HasResponses => Responses != null && Responses.Length > 0;
     public Response[] Responses => responses;
 }
