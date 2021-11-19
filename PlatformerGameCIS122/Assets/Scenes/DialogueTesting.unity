@@ -495,7 +495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392a4082f0a5ae7488a01b7ffacceab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueBox: {fileID: 330123510}
   textLabel: {fileID: 675307292}
+  testDialogue: {fileID: 11400000, guid: 8ecd2ee282acf834e9a00ad5ac61d67e, type: 2}
 --- !u!114 &875146066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,6 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b123e4ef0252d03498b613b2e9ad8e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typeWritterSpeed: 50
 --- !u!1 &1056230543
 GameObject:
   m_ObjectHideFlags: 0
