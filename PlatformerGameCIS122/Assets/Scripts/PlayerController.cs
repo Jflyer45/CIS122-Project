@@ -44,6 +44,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Text melonText;
     [SerializeField] private Text appleText;
 
+    // UI
+    [SerializeField] private DialogueUI dialogueUI;
+    public DialogueUI DialogueUI => dialogueUI;
+    public IInteractable Interactable { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +60,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Interactions for dialogue
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if(Interactable != null)
+            {
+                Interactable.Interact(this);
+            }
+        }
+
         if(state != State.hurt)
         {
             Movement();
