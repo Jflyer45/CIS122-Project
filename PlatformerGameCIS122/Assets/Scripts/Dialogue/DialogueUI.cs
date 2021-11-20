@@ -40,7 +40,7 @@ public class DialogueUI : MonoBehaviour
                 break;
             }
 
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.F));
         }
 
         // If there are responses, then shows then, else remove the dialog box!
