@@ -24,6 +24,7 @@ public class DialogueUI : MonoBehaviour
     {
         IsOpen = true;
         dialogueBox.SetActive(true);
+        Debug.Log("The box is set to active");
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
 
@@ -60,5 +61,6 @@ public class DialogueUI : MonoBehaviour
         IsOpen = false;
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
+        Debug.Log("The dialog box is now closed");
     }
 }
