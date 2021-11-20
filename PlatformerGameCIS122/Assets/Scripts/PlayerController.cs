@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
         {
             if(Interactable != null)
             {
+                Debug.Log("The interactible was not null");
                 Interactable.Interact(this);
             }
         }

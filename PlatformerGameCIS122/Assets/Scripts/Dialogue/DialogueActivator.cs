@@ -6,6 +6,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Trigger happned");
         // Makes sure it has player tag and playerController script
         if(other.CompareTag("Player") && other.TryGetComponent(out PlayerController player))
         {
