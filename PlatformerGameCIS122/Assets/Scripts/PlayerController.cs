@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     // Private Variables
     private Rigidbody2D rb;
     private Collider2D coll;
+    [SerializeField] private Collider2D footCollider;
     [SerializeField] private LayerMask Ground;
     private Animator anim;
     private enum State { idle, run, jump, falling, hurt};
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();
+        //footCollider = GetComponentInChildren<Collider2D>();
 
         // Sets the health amount to default amount
         healthPointsText.text = healthPoints + "";
@@ -208,7 +210,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (state == State.falling)
         {
-            if (coll.IsTouchingLayers(Ground))
+            if (footCollider.IsTouchingLayers(Ground))
             {
                 state = State.idle;
             }
@@ -248,7 +250,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Jump
-        if (Input.GetButtonDown("Jump") && coll.IsTouchingLayers(Ground))
+        if (Input.GetButtonDown("Jump") && footCollider.IsTouchingLayers(Ground))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             state = State.jump;
