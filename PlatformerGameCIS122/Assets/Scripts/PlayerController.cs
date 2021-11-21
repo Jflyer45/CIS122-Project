@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveForce = 5.0f;
     [SerializeField] float jumpForce = 10.0f;
     [SerializeField] float hurtForce = 10.0f;
+    [SerializeField] float hurtForceVertical = 3f;
+    [SerializeField] float hurtTime = .5f;
+    private float hurtTimer = 0;
 
     //Sound
     [SerializeField] private AudioSource jumpSoundEffects;
@@ -74,9 +77,20 @@ public class PlayerController : MonoBehaviour
         if(state != State.hurt)
         {
             Movement();
+            VelocityState();
         }
-
-        VelocityState();
+        else
+        {
+            // The player is hurt, count down the timer
+            if (hurtTimer > 0)
+            {
+                hurtTimer -= Time.deltaTime;
+            }
+            else
+            {
+                state = State.idle;
+            }  
+        }
         anim.SetInteger("State", (int)state);
     }
 
@@ -151,17 +165,18 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Player now hurt");
                 state = State.hurt;
+                hurtTimer = hurtTime;
                 if (other.gameObject.transform.position.x < transform.position.x)
                 {
                     Debug.Log("Player push to right: ");
                     // enemy is to the right
-                    rb.velocity = new Vector2(-hurtForce, rb.velocity.y);
+                    rb.velocity = new Vector2(hurtForce, rb.velocity.y + hurtForceVertical);
                 }
                 else
                 {
                     Debug.Log("Player push to left");
                     // enemy must be left
-                    rb.velocity = new Vector2(hurtForce, rb.velocity.y);
+                    rb.velocity = new Vector2(-hurtForce, rb.velocity.y + hurtForceVertical);
                 }
             }
         }
