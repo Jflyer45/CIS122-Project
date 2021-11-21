@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -35,14 +36,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int apples = 0;
 
     // Num of Collectables to display
-    [SerializeField] private Text cherryText;
-    [SerializeField] private Text strawberryText;
-    [SerializeField] private Text bananaText;
-    [SerializeField] private Text kiwiText;
-    [SerializeField] private Text orangeText;
-    [SerializeField] private Text pineappleText;
-    [SerializeField] private Text melonText;
-    [SerializeField] private Text appleText;
+    [SerializeField] private TextMeshProUGUI cherryText;
+    [SerializeField] private TextMeshProUGUI strawberryText;
+    [SerializeField] private TextMeshProUGUI bananaText;
+    [SerializeField] private TextMeshProUGUI kiwiText;
+    [SerializeField] private TextMeshProUGUI orangeText;
+    [SerializeField] private TextMeshProUGUI pineappleText;
+    [SerializeField] private TextMeshProUGUI melonText;
+    [SerializeField] private TextMeshProUGUI appleText;
 
     // UI
     [SerializeField] private DialogueUI dialogueUI;
