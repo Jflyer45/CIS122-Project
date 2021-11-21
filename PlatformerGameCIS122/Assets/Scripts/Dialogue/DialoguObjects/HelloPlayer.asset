@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cbe7eb21870b384e8435e94cc1dde5d, type: 3}
   m_Name: HelloPlayer
   m_EditorClassIdentifier: 
-  dialogue: []
+  dialogue:
+  - 'This is some dialogue
+
+    Hello Nija Frog'
+  - Also so more
+  - Would have responses but they arn't working rn lol
   responses: []
