@@ -71,20 +71,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Interactions for dialogue
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if(Interactable != null)
-            {
-                Debug.Log("The interactible was not null");
-                Interactable.Interact(this);
-            }
-        }
-
         if(state != State.hurt)
         {
             Movement();
             VelocityState();
+            // Interactions for dialogue
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Pressed e");
+                if (Interactable != null)
+                {
+                    Debug.Log("The interactible was not null");
+                    Interactable.Interact(this);
+                }
+            }
         }
         else
         {

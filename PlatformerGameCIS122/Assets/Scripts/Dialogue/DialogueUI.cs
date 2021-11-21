@@ -17,7 +17,6 @@ public class DialogueUI : MonoBehaviour
         typeWritterEffect = GetComponent<TypeWritterEffect>();
         responseHandler = GetComponent<ResponseHandler>();
         CloseDialogueBox();
-        
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)

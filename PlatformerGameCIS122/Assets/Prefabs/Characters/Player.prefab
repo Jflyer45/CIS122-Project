@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5878221435183260703}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,9 +150,12 @@ MonoBehaviour:
   Ground:
     serializedVersion: 2
     m_Bits: 256
+  healthPoints: 3
   moveForce: 5
   jumpForce: 9
   hurtForce: 10
+  hurtForceVertical: 3
+  hurtTime: 0.5
   jumpSoundEffects: {fileID: 5878221435183260707}
   collectionSoundEffects: {fileID: 5878221435183260701}
   cherries: 0
@@ -171,6 +174,8 @@ MonoBehaviour:
   pineappleText: {fileID: 0}
   melonText: {fileID: 0}
   appleText: {fileID: 0}
+  healthPointsText: {fileID: 0}
+  dialogueUI: {fileID: 0}
 --- !u!82 &5878221435183260707
 AudioSource:
   m_ObjectHideFlags: 0
