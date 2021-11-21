@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private enum State { idle, run, jump, falling, hurt};
     private State state = State.idle;
+    [SerializeField] private int healthPoints = 3;
 
     // Movement
     [SerializeField] float moveForce = 5.0f;
@@ -38,7 +40,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int melons = 0;
     [SerializeField] private int apples = 0;
 
-    // Num of Collectables to display
+    // Num of Collectables to display & UI text
     [SerializeField] private TextMeshProUGUI cherryText;
     [SerializeField] private TextMeshProUGUI strawberryText;
     [SerializeField] private TextMeshProUGUI bananaText;
@@ -47,6 +49,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI pineappleText;
     [SerializeField] private TextMeshProUGUI melonText;
     [SerializeField] private TextMeshProUGUI appleText;
+
+    [SerializeField] private TextMeshProUGUI healthPointsText;
 
     // UI
     [SerializeField] private DialogueUI dialogueUI;
@@ -59,6 +63,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();
+
+        // Sets the health amount to default amount
+        healthPointsText.text = healthPoints + "";
     }
 
     // Update is called once per frame
@@ -164,6 +171,13 @@ public class PlayerController : MonoBehaviour
             else
             {
                 Debug.Log("Player now hurt");
+                healthPoints -= 1;
+                healthPointsText.text = healthPoints + "";
+                // If the player gets below or at 0 hp then reload current scene.
+                if(healthPoints <=0)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                }
                 state = State.hurt;
                 hurtTimer = hurtTime;
                 if (other.gameObject.transform.position.x < transform.position.x)
