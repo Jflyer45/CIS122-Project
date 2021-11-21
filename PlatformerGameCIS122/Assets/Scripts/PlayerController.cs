@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private enum State { idle, run, jump, falling, hurt};
     private State state = State.idle;
+    [SerializeField] private int healthPoints = 3;
 
     // Movement
     [SerializeField] float moveForce = 5.0f;
@@ -164,6 +166,12 @@ public class PlayerController : MonoBehaviour
             else
             {
                 Debug.Log("Player now hurt");
+                healthPoints -= 1;
+                // If the player gets below or at 0 hp then reload current scene.
+                if(healthPoints <=0)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                }
                 state = State.hurt;
                 hurtTimer = hurtTime;
                 if (other.gameObject.transform.position.x < transform.position.x)
