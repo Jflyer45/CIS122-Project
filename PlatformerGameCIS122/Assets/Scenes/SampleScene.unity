@@ -10721,6 +10721,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6420678503619748729, guid: bb3a88e2e2b6b274a800bdd37d0cd3d7, type: 3}
   m_PrefabInstance: {fileID: 6420678503295309829}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &758124220 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8642119574024545339, guid: b7f22b4c003a2f44facab400e66cf05f, type: 3}
+  m_PrefabInstance: {fileID: 5878221435661925374}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &767769398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12180,6 +12185,10 @@ PrefabInstance:
       propertyPath: orangeText
       value: 
       objectReference: {fileID: 1944986618}
+    - target: {fileID: 386384351670080859, guid: b7f22b4c003a2f44facab400e66cf05f, type: 3}
+      propertyPath: footCollider
+      value: 
+      objectReference: {fileID: 758124220}
     - target: {fileID: 386384351670080859, guid: b7f22b4c003a2f44facab400e66cf05f, type: 3}
       propertyPath: pineappleText
       value: 
