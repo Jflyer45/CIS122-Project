@@ -1,5 +1,5 @@
 // Created by: Jeremy Fischer 11/3/2021
-// Edited by (Add name if you do anything to this script): Jeremy Fischer, Madeline Ellingson
+// Edited by (Add name if you do anything to this script): Jeremy Fischer, Madeline Ellingson, Aarambh Shrestha
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     //Sound
     [SerializeField] private AudioSource jumpSoundEffects;
     [SerializeField] private AudioSource collectionSoundEffects;
+    [SerializeField] private AudioSource pushbackSoundEffects;
 
     // Collectables
     [SerializeField] private int cherries = 0;
@@ -169,14 +170,19 @@ public class PlayerController : MonoBehaviour
             if(state == State.falling)
             {
                 Destroy(other.gameObject);
+                // Sound
+                pushbackSoundEffects.Play();
+
             }
             else
             {
                 Debug.Log("Player now hurt");
                 healthPoints -= 1;
                 healthPointsText.text = healthPoints + "";
+                // Sound
+                pushbackSoundEffects.Play();
                 // If the player gets below or at 0 hp then reload current scene.
-                if(healthPoints <=0)
+                if (healthPoints <=0)
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 }
