@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource jumpSoundEffects;
     [SerializeField] private AudioSource collectionSoundEffects;
     [SerializeField] private AudioSource pushbackSoundEffects;
+    [SerializeField] private AudioSource dialogueSoundEffects;
+
 
     // Collectables
     [SerializeField] private int cherries = 0;
@@ -82,6 +84,9 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Pressed e");
+                // Sound
+                dialogueSoundEffects.Play();
+
                 if (Interactable != null)
                 {
                     Debug.Log("The interactible was not null");
