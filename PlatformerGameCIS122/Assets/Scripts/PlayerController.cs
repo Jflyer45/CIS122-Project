@@ -165,6 +165,14 @@ public class PlayerController : MonoBehaviour
                 appleText.text = apples.ToString();
             }
         }
+        // Check if the player hits a powerup
+        if(collision.tag == "Powerup")
+		{
+            Destroy(collision.gameObject);
+            jumpForce = 15.0f;
+            GetComponent <SpriteRenderer>().color = Color.yellow;
+            StartCoroutine(ResetPower());
+		}
 
     }
 
@@ -268,4 +276,12 @@ public class PlayerController : MonoBehaviour
             jumpSoundEffects.Play();
         }
     }
+
+    // This function resets the player after consuming a powerup
+    private IEnumerator ResetPower()
+	{
+        yield return new WaitForSeconds(5);
+        jumpForce = 10.0f;
+        GetComponent<SpriteRenderer>().color = Color.white;
+	}
 }
