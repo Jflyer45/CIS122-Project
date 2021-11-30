@@ -12217,6 +12217,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 386384351670080863, guid: b7f22b4c003a2f44facab400e66cf05f, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f22b4c003a2f44facab400e66cf05f, type: 3}
 --- !u!1 &5878221435661925375 stripped
