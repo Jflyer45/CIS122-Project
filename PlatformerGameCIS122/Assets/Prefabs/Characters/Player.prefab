@@ -119,7 +119,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 386384351670080862}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 029b47198c706e44a9e1ebd2305604fa, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19c066c1ca41554ea57bb90bfbecee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  footCollider: {fileID: 0}
   Ground:
     serializedVersion: 2
     m_Bits: 256
@@ -159,6 +160,8 @@ MonoBehaviour:
   hurtTime: 0.5
   jumpSoundEffects: {fileID: 5878221435183260707}
   collectionSoundEffects: {fileID: 5878221435183260701}
+  pushbackSoundEffects: {fileID: 0}
+  dialogueSoundEffects: {fileID: 0}
   cherries: 0
   strawberries: 0
   bananas: 0
