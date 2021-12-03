@@ -114,8 +114,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Collectable")
         {
-            // Destroy the game object
-            Destroy(collision.gameObject);
+            // Collected animation plays in collectable script as well as 
+            // Destroy command
 
             // Collecting sound
             collectionSoundEffects.Play();
