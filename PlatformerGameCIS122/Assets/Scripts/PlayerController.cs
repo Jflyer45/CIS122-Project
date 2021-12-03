@@ -114,8 +114,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Collectable")
         {
-            // Destroy the game object
-            Destroy(collision.gameObject);
+            // Collected animation plays in collectable script as well as 
+            // Destroy command
 
             // Collecting sound
             collectionSoundEffects.Play();
@@ -173,7 +173,6 @@ public class PlayerController : MonoBehaviour
             // 1.5x jump force for collecting a Golden Pineapple
             if (powerupName.Contains("GoldenPineapple"))
             {
-                Destroy(collision.gameObject);
                 jumpForce = 15.0f;
                 GetComponent<SpriteRenderer>().color = Color.yellow;
                 StartCoroutine(ResetPower());
@@ -181,7 +180,6 @@ public class PlayerController : MonoBehaviour
             // 2x movement speed for collecting a Golden Apple
             else if (powerupName.Contains("GoldenApple"))
             {
-                Destroy(collision.gameObject);
                 moveForce = 10.0f;
                 GetComponent<SpriteRenderer>().color = Color.yellow;
                 StartCoroutine(ResetPower());
@@ -190,7 +188,6 @@ public class PlayerController : MonoBehaviour
             // a Super Banana
 			else
 			{
-                Destroy(collision.gameObject);
                 jumpForce = 15.0f;
                 moveForce = 10.0f;
                 GetComponent<SpriteRenderer>().color = Color.magenta;
