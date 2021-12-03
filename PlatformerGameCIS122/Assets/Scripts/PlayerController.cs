@@ -168,11 +168,36 @@ public class PlayerController : MonoBehaviour
         // Check if the player hits a powerup
         if(collision.tag == "Powerup")
 		{
-            Destroy(collision.gameObject);
-            jumpForce = 15.0f;
-            GetComponent <SpriteRenderer>().color = Color.yellow;
-            StartCoroutine(ResetPower());
-		}
+            string powerupName = collision.name;
+
+            // 1.5x jump force for collecting a Golden Pineapple
+            if (powerupName.Contains("GoldenPineapple"))
+            {
+                Destroy(collision.gameObject);
+                jumpForce = 15.0f;
+                GetComponent<SpriteRenderer>().color = Color.yellow;
+                StartCoroutine(ResetPower());
+            }
+            // 2x movement speed for collecting a Golden Apple
+            else if (powerupName.Contains("GoldenApple"))
+            {
+                Destroy(collision.gameObject);
+                moveForce = 10.0f;
+                GetComponent<SpriteRenderer>().color = Color.yellow;
+                StartCoroutine(ResetPower());
+            }
+            // 1.5x Jump force + 2x Movement speed for collecting
+            // a Super Banana
+			else
+			{
+                Destroy(collision.gameObject);
+                jumpForce = 15.0f;
+                moveForce = 10.0f;
+                GetComponent<SpriteRenderer>().color = Color.magenta;
+                StartCoroutine(ResetPower());
+            }
+
+        }
 
     }
 
@@ -282,6 +307,7 @@ public class PlayerController : MonoBehaviour
 	{
         yield return new WaitForSeconds(5);
         jumpForce = 10.0f;
+        moveForce = 5.0f;
         GetComponent<SpriteRenderer>().color = Color.white;
 	}
 }
