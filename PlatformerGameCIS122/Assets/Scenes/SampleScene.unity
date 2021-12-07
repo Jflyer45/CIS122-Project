@@ -11820,9 +11820,10 @@ GameObject:
   - component: {fileID: 841478704}
   - component: {fileID: 841478703}
   - component: {fileID: 841478702}
+  - component: {fileID: 841478705}
   m_Layer: 0
-  m_Name: trophy-pixel-removebg-preview
-  m_TagString: Untagged
+  m_Name: ToLevel1-Trophy
+  m_TagString: Exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11911,13 +11912,26 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841478701}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.8516, y: -1.3148, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.287897, y: -1.4400529, z: -13.955764}
   m_LocalScale: {x: 0.051804055, y: 0.05151072, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 2101765828}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &841478705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841478701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ae72479f9367f48b1f4b5312af8d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenceDestination: Level 1
 --- !u!1 &847869641
 GameObject:
   m_ObjectHideFlags: 0
@@ -14710,6 +14724,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1649462963082311914, guid: 0bf8472eea60df1498baf308ed8c1a9e, type: 3}
   m_PrefabInstance: {fileID: 1649462961931025184}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2101765827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2101765828}
+  m_Layer: 0
+  m_Name: Exits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2101765828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101765827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.563704, y: 0.12525284, z: 13.955764}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 841478704}
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2132662020
 GameObject:
   m_ObjectHideFlags: 0
