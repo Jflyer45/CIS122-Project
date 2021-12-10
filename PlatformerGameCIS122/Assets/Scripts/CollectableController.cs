@@ -15,7 +15,10 @@ public class CollectableController : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
 	{
-        anim.SetTrigger("Collected");
-        Destroy(gameObject, 0.4f);
+        if(collision.tag == "Player")
+        {
+            anim.SetTrigger("Collected");
+            Destroy(gameObject, 0.4f);
+        }
     }
 }
