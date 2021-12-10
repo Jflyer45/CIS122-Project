@@ -740,7 +740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3685851012128108680, guid: c54e9b8b71177714f8f0dc118e3855d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.35
+      value: 12.64
       objectReference: {fileID: 0}
     - target: {fileID: 3685851012128108680, guid: c54e9b8b71177714f8f0dc118e3855d3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4418,6 +4418,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 603319432}
     - target: {fileID: 386384351670080859, guid: b7f22b4c003a2f44facab400e66cf05f, type: 3}
+      propertyPath: jumpForce
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 386384351670080859, guid: b7f22b4c003a2f44facab400e66cf05f, type: 3}
       propertyPath: melonText
       value: 
       objectReference: {fileID: 603319431}
@@ -4468,6 +4472,10 @@ PrefabInstance:
     - target: {fileID: 386384351670080862, guid: b7f22b4c003a2f44facab400e66cf05f, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 386384351670080863, guid: b7f22b4c003a2f44facab400e66cf05f, type: 3}
+      propertyPath: m_GravityScale
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 386384351670080863, guid: b7f22b4c003a2f44facab400e66cf05f, type: 3}
       propertyPath: m_CollisionDetection
