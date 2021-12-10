@@ -8,8 +8,9 @@ public class ExitController : MonoBehaviour
     [SerializeField] private string scenceDestination;
 
     // Trigger Detection.
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("There was an interactio");
         // If the player touches the trophy
         if(collision.tag == "Player")
         {
