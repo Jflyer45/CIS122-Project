@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float hurtForceVertical = 3f;
     [SerializeField] float hurtTime = .5f;
     private float hurtTimer = 0;
+    private float collectionTimer = 0;
 
     //Sound
     [SerializeField] private AudioSource jumpSoundEffects;
@@ -106,6 +107,11 @@ public class PlayerController : MonoBehaviour
                 state = State.idle;
             }  
         }
+        // Always decrease collection time
+        if (collectionTimer > 0)
+        {
+            collectionTimer -= Time.deltaTime;
+        }
         anim.SetInteger("State", (int)state);
     }
 
@@ -114,55 +120,59 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Collectable")
         {
-            // Collected animation plays in collectable script as well as 
-            // Destroy command
+            if(collectionTimer <= 0)
+            {
+                collectionTimer = 1f;
+                // Collected animation plays in collectable script as well as 
+                // Destroy command
 
-            // Collecting sound
-            collectionSoundEffects.Play();
+                // Collecting sound
+                collectionSoundEffects.Play();
 
-            // Assign the name of the game object to a variable
-            string collectableName = collision.name;
+                // Assign the name of the game object to a variable
+                string collectableName = collision.name;
 
-			// Add to the correct fruit and display on the screen
-			if (collectableName.Contains("Cherry"))
-			{
-                cherries += 1;
-                cherryText.text = cherries.ToString();
-            }
-            else if (collectableName.Contains("Strawberry"))
-			{
-                strawberries += 1;
-                strawberryText.text = strawberries.ToString();
-            }
-            else if (collectableName.Contains("Banana"))
-			{
-                bananas += 1;
-                bananaText.text = bananas.ToString();
-            }
-            else if (collectableName.Contains("Kiwi"))
-			{
-                kiwis += 1;
-                kiwiText.text = kiwis.ToString();
-            }
-            else if (collectableName.Contains("Orange"))
-			{
-                oranges += 1;
-                orangeText.text = oranges.ToString();
-            }
-            else if (collectableName.Contains("Pineapple"))
-			{
-                pineapples += 1;
-                pineappleText.text = pineapples.ToString();
-            }
-            else if (collectableName.Contains("Melon"))
-			{
-                melons += 1;
-                melonText.text = melons.ToString();
-            }
-			else
-			{
-                apples += 1;
-                appleText.text = apples.ToString();
+                // Add to the correct fruit and display on the screen
+                if (collectableName.Contains("Cherry"))
+                {
+                    cherries += 1;
+                    cherryText.text = cherries.ToString();
+                }
+                else if (collectableName.Contains("Strawberry"))
+                {
+                    strawberries += 1;
+                    strawberryText.text = strawberries.ToString();
+                }
+                else if (collectableName.Contains("Banana"))
+                {
+                    bananas += 1;
+                    bananaText.text = bananas.ToString();
+                }
+                else if (collectableName.Contains("Kiwi"))
+                {
+                    kiwis += 1;
+                    kiwiText.text = kiwis.ToString();
+                }
+                else if (collectableName.Contains("Orange"))
+                {
+                    oranges += 1;
+                    orangeText.text = oranges.ToString();
+                }
+                else if (collectableName.Contains("Pineapple"))
+                {
+                    pineapples += 1;
+                    pineappleText.text = pineapples.ToString();
+                }
+                else if (collectableName.Contains("Melon"))
+                {
+                    melons += 1;
+                    melonText.text = melons.ToString();
+                }
+                else
+                {
+                    apples += 1;
+                    appleText.text = apples.ToString();
+                }
             }
         }
         // Check if the player hits a powerup
