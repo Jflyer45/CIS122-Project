@@ -307,4 +307,20 @@ public class PlayerController : MonoBehaviour
         moveForce = 5.0f;
         GetComponent<SpriteRenderer>().color = Color.white;
 	}
+
+    public Dictionary<string, int> getFruitStats()
+    {
+        Dictionary<string, int> fruitDic = new Dictionary<string, int>();
+
+        fruitDic.Add("Cherry", cherries);
+        fruitDic.Add("Strawberry", strawberries);
+        fruitDic.Add("Banana", bananas);
+        fruitDic.Add("Kiwi", kiwis);
+        fruitDic.Add("Orange", oranges);
+        fruitDic.Add("Pineapple", pineapples);
+        fruitDic.Add("Melon", melons);
+        fruitDic.Add("Apple", apples);
+
+        return fruitDic;
+    }
 }
