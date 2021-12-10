@@ -27,44 +27,47 @@ public class MaskManController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (facingLeft)
+        if(leftCap != 0 && rightCap != 0)
         {
-            if (transform.position.x > leftCap)
+            if (facingLeft)
             {
-                // If facing in the wrong direction
-                if (transform.localScale.x != 1)
+                if (transform.position.x > leftCap)
                 {
-                    // Faces the other direction
-                    transform.localScale = new Vector3(1, 1, 1);
+                    // If facing in the wrong direction
+                    if (transform.localScale.x != 1)
+                    {
+                        // Faces the other direction
+                        transform.localScale = new Vector3(1, 1, 1);
+                    }
+                    if (coll.IsTouchingLayers(ground))
+                    {
+                        rb.velocity = new Vector2(-jumpLength, jumpHeight);
+                    }
                 }
-                if (coll.IsTouchingLayers(ground))
+                else
                 {
-                    rb.velocity = new Vector2(-jumpLength, jumpHeight);
+                    facingLeft = false;
                 }
             }
             else
             {
-                facingLeft = false;
-            }
-        }
-        else
-        {
-            if (transform.position.x < rightCap)
-            {
-                // If facing in the wrong direction
-                if (transform.localScale.x != -1)
+                if (transform.position.x < rightCap)
                 {
-                    // Faces the other direction
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    // If facing in the wrong direction
+                    if (transform.localScale.x != -1)
+                    {
+                        // Faces the other direction
+                        transform.localScale = new Vector3(-1, 1, 1);
+                    }
+                    if (coll.IsTouchingLayers(ground))
+                    {
+                        rb.velocity = new Vector2(jumpLength, jumpHeight);
+                    }
                 }
-                if (coll.IsTouchingLayers(ground))
+                else
                 {
-                    rb.velocity = new Vector2(jumpLength, jumpHeight);
+                    facingLeft = true;
                 }
-            }
-            else
-            {
-                facingLeft = true;
             }
         }
     }
