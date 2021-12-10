@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbe7eb21870b384e8435e94cc1dde5d, type: 3}
+  m_Name: Level1NPC
+  m_EditorClassIdentifier: 
+  dialogue:
+  - Hey you there!
+  - 'Yeah! You frog with the red bandana!
+
+'
+  - 'What''s that? Oh you''re a Ninja Frog
+
+    ...
+
+    ...'
+  - '...
+
+    ...
+
+    ...'
+  - 'Look I don''t care. What I do care about is fruit salad!
+
+    Bring me one fruit
+    of every kind an I will let you into'
+  - this mine.
+  - 'What''s in the mine?
+
+    ...
+
+    I don''t know something cool probaby'
+  - '...
+
+    ...
+
+    ...'
+  - 'Fine! I can guarantee you there is something cool okay?
+
+    Just get me those
+    fruits!
+
+    And watch out for those mask people. They arn''t very nice!'
+  responses: []
