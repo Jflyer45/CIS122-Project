@@ -10,6 +10,7 @@ public class ExitController : MonoBehaviour
     // Trigger Detection.
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("There was an interactio");
         // If the player touches the trophy
         if(collision.tag == "Player")
         {

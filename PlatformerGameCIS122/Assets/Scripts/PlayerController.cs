@@ -112,6 +112,12 @@ public class PlayerController : MonoBehaviour
         {
             collectionTimer -= Time.deltaTime;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         anim.SetInteger("State", (int)state);
     }
 
